@@ -18,7 +18,7 @@ function setup() {
     audio: false,
     video: {
       facingMode: {
-        exact: "environment"
+        exact: "user"   // Option :user , environment , left , right
       }
     }
   });
@@ -36,7 +36,7 @@ function setup() {
 }
 
 function modelReady() {
-  select('#status').html('Model Loaded');
+  select('#status').html('模型載入成功');
 }
 
 function draw() {
