@@ -14,7 +14,14 @@ let poses = [];
 
 function setup() {
   createCanvas(640, 480);
-  video = createCapture(VIDEO);
+  video = createCapture({
+    audio: false,
+    video: {
+      facingMode: {
+        exact: "environment"
+      }
+    }
+  });
   video.size(width, height);
 
   // Create a new poseNet method with a single detection
