@@ -18,7 +18,7 @@ var windows_height = document.body.clientHeight; // for fit windows size
 var windows_width = document.body.clientWidth;
 
 function setup() {
-  createCanvas(windows_width/2, windows_height/2); // for fit windows size
+  createCanvas(windows_width/2, windows_width*480/(2*640)); // for fit windows size
   video = createCapture({
     audio: false,
     video: {
