@@ -1,3 +1,6 @@
+// Copyright (c) 2020 chiyanglin@gmail.com
+// Modified for Posenet for Body Education
+//
 // Copyright (c) 2018 ml5
 //
 // This software is released under the MIT License.
@@ -11,9 +14,11 @@ PoseNet example using p5.js
 let video;
 let poseNet;
 let poses = [];
+var windows_height = document.body.clientHeight; // for fit windows size
+var windows_width = document.body.clientWidth;
 
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(windows_width/2, windows_height/2); // for fit windows size
   video = createCapture({
     audio: false,
     video: {
@@ -23,6 +28,10 @@ function setup() {
     }
   });
   video.size(width, height);
+  console.log(" windows width =" ,windows_width);
+  console.log(" windows height =" ,windows_height);
+  console.log(" Capture width =" ,width);
+  console.log(" Capture height =" ,height);
 
   // Create a new poseNet method with a single detection
   poseNet = ml5.poseNet(video, modelReady);
