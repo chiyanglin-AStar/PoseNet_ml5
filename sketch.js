@@ -16,11 +16,16 @@ let poseNet;
 let poses = [];
 var windows_height = document.body.clientHeight; // for fit windows size
 var windows_width = document.body.clientWidth;
+var user_language = navigator.language;
+var u = new SpeechSynthesisUtterance();
 
 function setup() {
+  var x = "Language of the browser: " + user_language;
+
   createCanvas(windows_width/2, windows_height/2); // for fit windows size
   video = createCapture({
     audio: false,
+    // choose Front or back Camera
     video: {
       facingMode: {
         exact: "user"   // Option :user , environment , left , right
@@ -32,6 +37,8 @@ function setup() {
   console.log(" windows height =" ,windows_height);
   console.log(" Capture width =" ,width);
   console.log(" Capture height =" ,height);
+  console.log(x);
+  document.getElementById("demo").innerHTML = x;
 
   // Create a new poseNet method with a single detection
   poseNet = ml5.poseNet(video, modelReady);
@@ -45,6 +52,11 @@ function setup() {
 }
 
 function modelReady() {
+  u.text = '模型載入成功';
+  u.lang = user_language;
+  u.rate = 1.2;
+  u.onend = function(event) { alert('Finished in ' + event.elapsedTime + ' seconds.'); }
+  speechSynthesis.speak(u);
   select('#status').html('模型載入成功');
 }
 
