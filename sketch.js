@@ -33,6 +33,7 @@ function setup() {
     }
   });
   video.size(width, height);
+  console.log(" video facing mode : enviroment");
   console.log(" windows width =" ,windows_width);
   console.log(" windows height =" ,windows_height);
   console.log(" Capture width =" ,width);
