@@ -28,7 +28,7 @@ function setup() {
     // choose Front or back Camera
     video: {
       facingMode: {
-        exact: "user"   // Option :user , environment , left , right
+        exact: "environment"   // Option :user , environment , left , right
       }
     }
   });
